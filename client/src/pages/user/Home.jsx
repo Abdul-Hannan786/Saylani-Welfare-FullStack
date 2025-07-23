@@ -1,9 +1,14 @@
-import React from 'react'
+import FAQs from "@/components/user/FAQs";
+import Testimonails from "@/components/user/Testimonails";
+import React from "react";
 
 const Home = () => {
   return (
-    <div></div>
-  )
-}
+    <>
+      <FAQs />
+      <Testimonails />
+    </>
+  );
+};
 
-export default Home
+export default Home;
