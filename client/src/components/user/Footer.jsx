@@ -118,7 +118,7 @@ const Footer = () => {
             <span className="">
               &copy; {new Date().getFullYear()}{" "}
               <Link href="/" target="_blank">
-                Edemy
+                Saylani Welfare Trust
               </Link>
               . All rights reserved.
             </span>

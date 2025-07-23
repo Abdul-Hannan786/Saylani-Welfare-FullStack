@@ -62,7 +62,6 @@ const defaultValues = [
 
 const About = () => {
   const aboutData = {
-    title: "About Us",
     subtitle:
       "Serving humanity with compassion through education, healthcare, and welfare support.",
     mission:
@@ -87,8 +86,8 @@ const About = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="mx-auto mb-16 max-w-2xl text-center"
         >
-          <h1 className="from-foreground/80 via-foreground to-foreground/80 bg-gradient-to-r bg-clip-text text-4xl font-bold tracking-tight text-transparent sm:text-5xl md:text-6xl">
-            {aboutData.title}
+          <h1 className="from-foreground/80 via-foreground to-foreground/80 bg-gradient-to-r bg-clip-text text-4xl font-bold tracking-tight text-gray-800 sm:text-5xl md:text-6xl">
+            About <span className="text-primary">Us</span>
           </h1>
           <p className="text-muted-foreground mt-6 text-xl">
             {aboutData.subtitle}
