@@ -4,7 +4,6 @@ import bcrypt from "bcrypt";
 
 export const register = async (req, res) => {
   try {
-    console.log("first");
     const { name, email, password, cnic } = req.body;
     if (!name || !email || !password || !cnic) {
       return res.json({
@@ -13,8 +12,8 @@ export const register = async (req, res) => {
       });
     }
 
-    const isExistingUser = await User.findOne({ cnic, email });
-    if (!isExistingUser) {
+    const isExistingUser = await User.findOne({ cnic });
+    if (isExistingUser) {
       return res.json({ success: false, message: "User already exists" });
     }
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -24,7 +23,6 @@ export const register = async (req, res) => {
       password: hashedPassword,
       cnic,
     });
-    const users = await User.find().select("-password");
 
     const token = jwt.sign({ _id: newUser._id }, process.env.AUTH_SECRET);
     res.cookie("token", token, {
@@ -36,8 +34,7 @@ export const register = async (req, res) => {
     res.json({
       success: true,
       message: "User created successfully",
-      users,
-      user: { _id: newUser._id, name, email, cnic },
+      user: { _id: newUser._id, name, email, cnic, role: newUser.role },
     });
   } catch (error) {
     console.log(error.message);
@@ -55,8 +52,12 @@ export const login = async (req, res) => {
       });
     }
 
-    const user = await User.findOne({ email, cnic });
+    const user = await User.findOne({ cnic });
     if (!user) {
+      return res.json({ success: false, message: "User not found" });
+    }
+
+    if (user.email !== email) {
       return res.json({ success: false, message: "User not found" });
     }
 
@@ -66,8 +67,6 @@ export const login = async (req, res) => {
     }
 
     const token = jwt.sign({ _id: user._id }, process.env.AUTH_SECRET);
-    console.log(token);
-    console.log(user);
     res.cookie("token", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
@@ -78,7 +77,7 @@ export const login = async (req, res) => {
     res.json({
       success: true,
       message: "Login successfull",
-      user: { _id: user._id, email, cnic, name: user.name },
+      user: { _id: user._id, email, cnic, name: user.name, role: user.role },
     });
   } catch (error) {
     console.log(error.message);
@@ -102,6 +101,21 @@ export const verifyToken = async (req, res) => {
     return res.json({ success: true, user });
   } catch (error) {
     console.error("Token verification failed:", error.message);
+    return res.json({ success: false, message: error.message });
+  }
+};
+
+export const logout = async (req, res) => {
+  try {
+    res.clearCookie("token", {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+    });
+
+    return res.json({ success: true, message: "Logged out successfully" });
+  } catch (error) {
+    console.log(error.message);
     return res.json({ success: false, message: error.message });
   }
 };

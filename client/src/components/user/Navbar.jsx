@@ -9,8 +9,25 @@ import {
 import { Link } from "react-router-dom";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import { LogOut, Menu } from "lucide-react";
+import useStore from "@/store/store";
+import toast from "react-hot-toast";
+import api from "@/axios";
 
 const Navbar = () => {
+  const { user, setUser } = useStore();
+  const handleSignOut = async () => {
+    try {
+      const { data } = await api.post("/api/auth/logout");
+      if (data.success) {
+        toast.success(data.message);
+        setUser(null);
+      }
+    } catch (error) {
+      toast.error("error in signing out");
+      console.log(error.message);
+    }
+  };
+
   return (
     <nav className="fixed z-50 top-6 inset-x-4 h-16 sm:h-16 bg-background/40 backdrop-blur-xs border dark:border-slate-700/70 max-w-screen-xl mx-auto rounded-full">
       <div className="h-full flex items-center justify-between mx-auto px-4">
@@ -54,10 +71,16 @@ const Navbar = () => {
         </NavigationMenu>
 
         <div className="flex items-center gap-3">
-          <Button className="hidden sm:block rounded-full cursor-pointer">
-            Dashboard
-          </Button>
+          {user.role === "admin" && (
+            <Link to="/admin">
+              <Button className="hidden sm:block rounded-full cursor-pointer">
+                Dashboard
+              </Button>
+            </Link>
+          )}
+
           <Button
+            onClick={handleSignOut}
             variant="destructive"
             className="hidden rounded-full sm:inline-flex cursor-pointer px-4"
           >
@@ -113,12 +136,18 @@ const Navbar = () => {
                 </NavigationMenu>
 
                 <div className="flex flex-col gap-3 w-full">
-                  <Button className="w-full sm:hidden rounded-full">
-                    Dashboard
-                  </Button>
+                  {user.role === "admin" && (
+                    <Link to="/admin">
+                      <Button className="w-full sm:hidden rounded-full">
+                        Dashboard
+                      </Button>
+                    </Link>
+                  )}
+
                   <Button
                     variant="destructive"
                     className="w-full sm:hidden rounded-full"
+                    onClick={handleSignOut}
                   >
                     Sign Out
                     <LogOut />

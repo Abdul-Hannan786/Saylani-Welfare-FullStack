@@ -128,7 +128,6 @@ const TestimonialCard = ({ testimonial }) => (
       <div className="hidden lg:block relative shrink-0 aspect-[3/4] max-w-[18rem] w-full bg-muted-foreground/20 rounded-xl">
         <img
           src={testimonial.avatar}
-          fill
           alt="user pic"
           className="object-cover rounded-xl"
           loading="lazy"
