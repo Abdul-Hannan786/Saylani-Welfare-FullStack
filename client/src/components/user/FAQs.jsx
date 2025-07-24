@@ -9,36 +9,38 @@ import { cn } from "@/lib/utils";
 
 const faq = [
   {
-    question: "What is your return policy?",
+    question: "How can I donate to Saylani Welfare?",
     answer:
-      "You can return unused items in their original packaging within 30 days for a refund or exchange. Contact support for assistance.",
+      "You can donate online through our official website using various payment methods, or visit any Saylani branch near you.",
   },
   {
-    question: "How do I track my order?",
+    question: "What services does Saylani provide?",
     answer:
-      "Track your order using the link provided in your confirmation email, or log into your account to view tracking details.",
+      "Saylani offers free food distribution, medical care, education programs, vocational training, and emergency relief services across Pakistan and abroad.",
   },
   {
-    question: "Do you ship internationally?",
+    question: "Can I volunteer with Saylani?",
     answer:
-      "Yes, we ship worldwide. Shipping fees and delivery times vary by location, and customs duties may apply for some countries.",
+      "Yes, we welcome volunteers! Please fill out the volunteer form on our website or visit your nearest Saylani center to get started.",
   },
   {
-    question: "What payment methods do you accept?",
+    question:
+      "How can I enroll in Saylani's IT or vocational training programs?",
     answer:
-      "We accept Visa, MasterCard, American Express, PayPal, Apple Pay, and Google Pay, ensuring secure payment options for all customers.",
+      "You can apply through the official Saylani Mass IT Training Program website or visit our training center for enrollment details.",
   },
   {
-    question: "What if I receive a damaged item?",
+    question: "Where does Saylani operate?",
     answer:
-      "Please contact our support team within 48 hours of delivery with photos of the damaged item. We’ll arrange a replacement or refund.",
+      "Saylani operates throughout Pakistan and in several international regions. Our services are expanding continuously to reach more people in need.",
   },
   {
-    question: "How can I contact customer support?",
+    question: "How can I contact Saylani Welfare?",
     answer:
-      "You can reach our support team via email at support@example.com or through the live chat on our website. We're available 24/7 to assist you.",
+      "You can contact us through the contact form on our website, call our helpline, or visit any of our branches. We’re here to assist you.",
   },
 ];
+
 const FAQs = () => {
   return (
     <div id="faq" className="w-full max-w-screen-xl mx-auto py-8 xs:py-16 px-6">

@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Link } from "react-router-dom";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
-import { Menu } from "lucide-react";
+import { LogOut, Menu } from "lucide-react";
 
 const Navbar = () => {
   return (
@@ -59,9 +59,10 @@ const Navbar = () => {
           </Button>
           <Button
             variant="destructive"
-            className="hidden rounded-full sm:inline-flex cursor-pointer"
+            className="hidden rounded-full sm:inline-flex cursor-pointer px-4"
           >
             Sign Out
+            <LogOut />
           </Button>
 
           {/* Mobile Menu */}
@@ -111,12 +112,18 @@ const Navbar = () => {
                   </NavigationMenuList>
                 </NavigationMenu>
 
-                <Button
-                  variant="destructive"
-                  className="w-full sm:hidden rounded-full"
-                >
-                  Sign Out
-                </Button>
+                <div className="flex flex-col gap-3 w-full">
+                  <Button className="w-full sm:hidden rounded-full">
+                    Dashboard
+                  </Button>
+                  <Button
+                    variant="destructive"
+                    className="w-full sm:hidden rounded-full"
+                  >
+                    Sign Out
+                    <LogOut />
+                  </Button>
+                </div>
               </SheetContent>
             </Sheet>
           </div>

@@ -17,7 +17,7 @@ const testimonials = [
     testimonial:
       "Saylani completely changed my life. I had no access to quality education before, but now I’m learning web development for free and preparing for a bright future.",
     avatar:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHVzZXJ8ZW58MHx8MHx8fDA%3D",
+      "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?_gl=1*1cgio44*_ga*MzgzMjU1MTczLjE3NTMzNzg2Mjg.*_ga_8JE65Q40S6*czE3NTMzNzg2MjckbzEkZzEkdDE3NTMzNzg2MzIkajU1JGwwJGgw",
   },
   {
     id: 2,
@@ -57,7 +57,7 @@ const testimonials = [
     testimonial:
       "I trust Saylani completely. Their transparency and dedication to helping the needy inspire me to keep supporting their work.",
     avatar:
-      "https://images.unsplash.com/photo-1522556189639-b150ed9c4330?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzV8fHVzZXJ8ZW58MHx8MHx8fDA%3D",
+      "https://images.pexels.com/photos/905375/pexels-photo-905375.jpeg?_gl=1*1xrgfn7*_ga*MzgzMjU1MTczLjE3NTMzNzg2Mjg.*_ga_8JE65Q40S6*czE3NTMzNzg2MjckbzEkZzEkdDE3NTMzNzg4MTIkajU5JGwwJGgw",
   },
   {
     id: 6,
@@ -164,11 +164,11 @@ const TestimonialCard = ({ testimonial }) => (
             </div>
           </div>
           <div className="flex items-center gap-1">
-            <StarIcon className="w-5 h-5 fill-muted-foreground stroke-muted-foreground" />
-            <StarIcon className="w-5 h-5 fill-muted-foreground stroke-muted-foreground" />
-            <StarIcon className="w-5 h-5 fill-muted-foreground stroke-muted-foreground" />
-            <StarIcon className="w-5 h-5 fill-muted-foreground stroke-muted-foreground" />
-            <StarIcon className="w-5 h-5 fill-muted-foreground stroke-muted-foreground" />
+            <StarIcon className="w-5 h-5 fill-yellow-400 stroke-yellow-400" />
+            <StarIcon className="w-5 h-5 fill-yellow-400 stroke-yellow-400" />
+            <StarIcon className="w-5 h-5 fill-yellow-400 stroke-yellow-400" />
+            <StarIcon className="w-5 h-5 fill-yellow-400 stroke-yellow-400" />
+            <StarIcon className="w-5 h-5 fill-yellow-400 stroke-yellow-400" />
           </div>
         </div>
         <p className="mt-6 text-lg sm:text-2xl lg:text-[1.75rem] xl:text-3xl leading-normal lg:!leading-normal font-semibold tracking-tight">
