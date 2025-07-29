@@ -1,3 +1,4 @@
+import { uploadToCloudinary } from "../config/cloudinary.js";
 import User from "../models/User.js";
 
 export const getAllUsers = async (req, res) => {
@@ -8,9 +9,4 @@ export const getAllUsers = async (req, res) => {
     console.log(error.message);
     return res.json({ success: false, message: error.message });
   }
-};
-
-export const testMiddleware = async (req,res) => {
-  const user = req.user;
-  res.send(user);
 };
