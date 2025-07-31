@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import useStore from "@/store/store";
 import { LayoutDashboard } from "lucide-react";
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
@@ -9,6 +10,7 @@ const adminNav = [
 ];
 const Sidebar = () => {
   const { pathname } = useLocation();
+  const { user } = useStore();
   return (
     <aside className="remove-scrollbar hidden h-screen w-[90px] flex-col overflow-auto px-4 py-5 sm:flex lg:w-[270px] xl:w-[310px] !important">
       <Link to={"/"} className="flex gap-2 items-center">
@@ -34,14 +36,7 @@ const Sidebar = () => {
                     "bg-primary text-white shadow-drop-(0 8px 30px 0 rgba(65, 89, 214, 0.3) !important"
                 )}
               >
-                <div
-                  className={cn(
-                    "w-6 filter invert opacity-25 !important",
-                    pathname === url && "invert-0 opacity-100 !important"
-                  )}
-                >
-                  {icon}
-                </div>
+                <div className="w-6">{icon}</div>
                 <p className="hidden lg:block">{name}</p>
               </li>
             </Link>
@@ -58,8 +53,10 @@ const Sidebar = () => {
           height={44}
         />
         <div className="hidden lg:block">
-          <p className="text-[14px] leading-[20px] font-semibold capitalize">Abdul Hannan</p>
-          <p className="text-[12px] leading-[16px] font-normal">abdulhannanhere@gmail.com</p>
+          <p className="text-[14px] leading-[20px] font-semibold capitalize">
+            {user.name}
+          </p>
+          <p className="text-[12px] leading-[16px] font-normal">{user.email}</p>
         </div>
       </div>
     </aside>
