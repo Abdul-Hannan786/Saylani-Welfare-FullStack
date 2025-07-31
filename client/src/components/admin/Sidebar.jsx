@@ -1,0 +1,69 @@
+import { cn } from "@/lib/utils";
+import { LayoutDashboard } from "lucide-react";
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
+
+const adminNav = [
+  { name: "Dashboard", icon: <LayoutDashboard />, url: "/admin" },
+  { name: "Dashboard", icon: <LayoutDashboard />, url: "/admin/dashboard" },
+];
+const Sidebar = () => {
+  const { pathname } = useLocation();
+  return (
+    <aside className="remove-scrollbar hidden h-screen w-[90px] flex-col overflow-auto px-4 py-5 sm:flex lg:w-[270px] xl:w-[310px] !important">
+      <Link to={"/"} className="flex gap-2 items-center">
+        <img
+          src="https://saylaniwelfare.com/favicon.png"
+          alt="logo"
+          width={50}
+          height={50}
+        />
+        <h3 className="font-semibold text-gray-800 text-xl hidden lg:block">
+          Saylani Welfare
+        </h3>
+      </Link>
+
+      <nav className="mt-9 flex-1 gap-1 text-[16px] leading-[24px] font-semibold text-primary">
+        <ul className="flex flex-1 flex-col gap-6">
+          {adminNav.map(({ icon, name, url }) => (
+            <Link to={url} key={name} className="lg:w-full">
+              <li
+                className={cn(
+                  "flex text-[#333F4E] gap-4 rounded-xl lg:w-full justify-center lg:justify-start items-center lg:px-[30px] h-[52px] lg:rounded-full !important text-[16px] leading-[24px] font-semibold",
+                  pathname === url &&
+                    "bg-primary text-white shadow-drop-(0 8px 30px 0 rgba(65, 89, 214, 0.3) !important"
+                )}
+              >
+                <div
+                  className={cn(
+                    "w-6 filter invert opacity-25 !important",
+                    pathname === url && "invert-0 opacity-100 !important"
+                  )}
+                >
+                  {icon}
+                </div>
+                <p className="hidden lg:block">{name}</p>
+              </li>
+            </Link>
+          ))}
+        </ul>
+      </nav>
+
+      <div className="mt-4 flex items-center justify-center gap-2 rounded-full bg-primary/10 p-1 text-[#333F4E] lg:justify-start lg:p-3 !important">
+        <img
+          src="./src/assets/user.png"
+          alt="avatar"
+          className="aspect-square w-10 rounded-full object-cover !important"
+          width={44}
+          height={44}
+        />
+        <div className="hidden lg:block">
+          <p className="text-[14px] leading-[20px] font-semibold capitalize">Abdul Hannan</p>
+          <p className="text-[12px] leading-[16px] font-normal">abdulhannanhere@gmail.com</p>
+        </div>
+      </div>
+    </aside>
+  );
+};
+
+export default Sidebar;
