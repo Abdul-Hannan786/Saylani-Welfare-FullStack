@@ -5,14 +5,15 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const adminNav = [
-  { name: "Dashboard", icon: <LayoutDashboard />, url: "/admin" },
+  { name: "Admin", icon: <LayoutDashboard />, url: "/admin" },
   { name: "Dashboard", icon: <LayoutDashboard />, url: "/admin/dashboard" },
 ];
 const Sidebar = () => {
   const { pathname } = useLocation();
   const { user } = useStore();
+
   return (
-    <aside className="remove-scrollbar hidden h-screen w-[90px] flex-col overflow-auto px-4 py-5 sm:flex lg:w-[270px] xl:w-[310px] !important">
+    <aside className="remove-scrollbar shadow-md hidden h-screen w-[90px] flex-col overflow-auto px-4 py-5 sm:flex lg:w-[270px] xl:w-[310px] !important">
       <Link to={"/"} className="flex gap-2 items-center">
         <img
           src="https://saylaniwelfare.com/favicon.png"

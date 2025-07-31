@@ -73,7 +73,7 @@ const Navbar = () => {
         <div className="flex items-center gap-3">
           {user.role === "admin" && (
             <Link to="/admin">
-              <Button className="hidden sm:block rounded-full cursor-pointer">
+              <Button className="hidden sm:block rounded-full cursor-pointer font-semibold">
                 Dashboard
               </Button>
             </Link>
@@ -138,7 +138,7 @@ const Navbar = () => {
                 <div className="flex flex-col gap-3 w-full">
                   {user.role === "admin" && (
                     <Link to="/admin">
-                      <Button className="w-full sm:hidden rounded-full">
+                      <Button className="w-full sm:hidden rounded-full font-semibold">
                         Dashboard
                       </Button>
                     </Link>
