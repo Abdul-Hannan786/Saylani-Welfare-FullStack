@@ -18,14 +18,14 @@ const Hero = () => {
           <div className="mt-12 flex flex-col sm:flex-row items-center sm:justify-center gap-4">
             <Button
               size="lg"
-              className="w-full sm:w-auto rounded-full text-base cursor-pointer"
+              className="w-full sm:w-auto rounded-full text-base cursor-pointer active:scale-95 transition"
             >
               Get Started <ArrowUpRight className="!h-5 !w-5" />
             </Button>
             <Button
               variant="outline"
               size="lg"
-              className="w-full sm:w-auto rounded-full text-base shadow-none cursor-pointer"
+              className="w-full sm:w-auto rounded-full text-base shadow-none cursor-pointer active:scale-95 transition"
             >
               <CirclePlay className="!h-5 !w-5" /> Watch Demo
             </Button>

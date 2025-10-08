@@ -131,7 +131,7 @@ const Contact = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <Button className="w-full py-5 font-semibold">
+                <Button type="button" className="w-full cursor-pointer py-5 font-semibold active:scale-95 transition">
                   Send Message
                 </Button>
               </motion.div>
@@ -188,7 +188,7 @@ const Contact = () => {
                     transition={{ delay: index * 0.1 + 0.6 }}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
-                    className={`w-12 h-12 bg-[#f8f9fa] cursor-pointer rounded-full flex items-center justify-center text-gray-600 transition-all ${social.color}`}
+                    className={`w-12 h-12 bg-[#f8f9fa] cursor-pointer rounded-full flex items-center justify-center text-gray-600 transition-all active:scale-90 ${social.color}`}
                     aria-label={`Follow us on ${social.name}`}
                   >
                     {social.icon}

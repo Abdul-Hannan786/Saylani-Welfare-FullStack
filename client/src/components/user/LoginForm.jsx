@@ -57,7 +57,6 @@ const LoginForm = () => {
       if (data.success) {
         toast.success(data.message);
         setUser(data.user);
-        console.log(data.user);
       } else {
         toast.error(data.message);
       }
@@ -136,7 +135,7 @@ const LoginForm = () => {
         </div>
         <Button
           type="submit"
-          className="w-full cursor-pointer"
+          className="w-full cursor-pointer active:scale-95 transition"
           disabled={loading}
         >
           {loading ? (

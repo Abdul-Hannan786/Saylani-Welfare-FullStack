@@ -22,7 +22,7 @@ const testimonials = [
   {
     id: 2,
     name: "Ahmed Mustafa",
-    designation: "Housewife",
+    designation: "Donor",
     company: "Saylani Dastarkhwan",
     testimonial:
       "Feeding my children was a daily struggle. Saylani’s food program gives us dignity and hope every single day. I’m forever thankful.",
