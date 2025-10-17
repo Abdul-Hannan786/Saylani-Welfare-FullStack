@@ -23,9 +23,9 @@ const Header = () => {
     <header className="hidden items-center justify-between shadow-md gap-5 p-5 sm:flex lg:py-5 xl:gap-10 !important">
       <h2 className="font-bold text-2xl text-gray-800">Admin Dashboard</h2>
       <div className="flex-center min-w-fit gap-4">
-        <form onSubmit={handleSignOut}>
+        
           <Button
-            type="submit"
+            onClick={handleSignOut}
             className="flex-center active:scale-95 h-[52px] min-w-[54px] items-center rounded-full bg-[#FA7275]/10 p-0 text-[#FA7275] shadow-none transition-all hover:bg-[#FA7275]/20 cursor-pointer"
           >
             <img
@@ -36,7 +36,7 @@ const Header = () => {
               height={24}
             />
           </Button>
-        </form>
+        
       </div>
     </header>
   );
