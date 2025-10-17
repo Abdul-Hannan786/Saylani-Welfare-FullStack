@@ -29,7 +29,7 @@ const Header = () => {
             className="flex-center active:scale-95 h-[52px] min-w-[54px] items-center rounded-full bg-[#FA7275]/10 p-0 text-[#FA7275] shadow-none transition-all hover:bg-[#FA7275]/20 cursor-pointer"
           >
             <img
-              src="src/assets/logout.svg"
+              src="/logout.svg"
               alt="logout"
               className="w-6"
               width={24}

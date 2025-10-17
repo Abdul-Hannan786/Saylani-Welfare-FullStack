@@ -53,7 +53,7 @@ const MobileNavigation = () => {
           <SheetTitle>
             <div className="my-3 flex items-center gap-2 rounded-full p-1 text-[#333F4E] sm:justify-center sm:bg-primary/10 lg:justify-start lg:p-3">
               <img
-                src="./src/assets/user.png"
+                src="/user.png"
                 alt="avatar"
                 className=" aspect-square w-10 rounded-full object-cover"
                 width={44}
@@ -95,7 +95,7 @@ const MobileNavigation = () => {
               onClick={handleSignOut}
             >
               <img
-                src="./src/assets/logout.svg"
+                src="/logout.svg"
                 alt="logout"
                 width={24}
                 height={24}

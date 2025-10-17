@@ -47,7 +47,7 @@ const Sidebar = () => {
 
       <div className="mt-4 flex items-center justify-center gap-2 rounded-full bg-primary/10 p-1 text-[#333F4E] lg:justify-start lg:p-3 !important">
         <img
-          src="./src/assets/user.png"
+          src="/user.png"
           alt="avatar"
           className="aspect-square w-10 rounded-full object-cover !important"
           width={44}
