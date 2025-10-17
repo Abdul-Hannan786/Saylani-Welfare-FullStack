@@ -82,7 +82,7 @@ const Navbar = () => {
           <Button
             onClick={handleSignOut}
             variant="destructive"
-            className="hidden rounded-full sm:inline-flex cursor-pointer px-4 font-semibold"
+            className="hidden rounded-full sm:inline-flex cursor-pointer px-4 font-semibold active:scale-95 transition"
           >
             <LogOut />
             Sign Out
