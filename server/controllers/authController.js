@@ -24,7 +24,7 @@ export const register = async (req, res) => {
       cnic,
     });
 
-    const token = jwt.sign({ _id: newUser._id }, process.env.AUTH_SECRET);
+    const token = jwt.sign({ _id: newUser._id }, process.env.AUTH_SECRET, { expiresIn: '7d' });
     res.cookie("token", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
@@ -62,7 +62,7 @@ export const login = async (req, res) => {
       return res.json({ success: false, message: "Invalid credentials" });
     }
 
-    const token = jwt.sign({ _id: user._id }, process.env.AUTH_SECRET);
+    const token = jwt.sign({ _id: user._id }, process.env.AUTH_SECRET, { expiresIn: '1h' });
     res.cookie("token", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
@@ -73,7 +73,7 @@ export const login = async (req, res) => {
     res.json({
       success: true,
       message: "Login successfull",
-      user: { _id: user._id, email:user.email, cnic, name: user.name, role: user.role },
+      user: { _id: user._id, email: user.email, cnic, name: user.name, role: user.role },
     });
   } catch (error) {
     console.log(error.message);

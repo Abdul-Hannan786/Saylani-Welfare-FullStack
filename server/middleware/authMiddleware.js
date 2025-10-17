@@ -15,7 +15,8 @@ export const authenticateUser = async (req, res, next) => {
       return res.json({ success: false, message: "Not authorized" });
     }
 
-    const user = await User.findById(decoded).select("-password");
+    const user = await User.findById(decoded._id).select("-password");
+    console.log(user)
     if (!user) {
       return res.json({ success: false, message: "User not found" });
     }
@@ -42,7 +43,7 @@ export const authenticateAdmin = async (req, res, next) => {
       return res.json({ success: false, message: "Not authorized" });
     }
 
-    const user = await User.findById(decoded);
+    const user = await User.findById(decoded._id).select("-password");
     if (!user) {
       return res.json({ success: false, message: "User not found" });
     }
