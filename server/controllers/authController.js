@@ -44,8 +44,8 @@ export const register = async (req, res) => {
 
 export const login = async (req, res) => {
   try {
-    const { email, password, cnic } = req.body;
-    if (!email || !password || !cnic) {
+    const { password, cnic } = req.body;
+    if (!password || !cnic) {
       return res.json({
         success: false,
         message: "Please provide all the details",
@@ -54,10 +54,6 @@ export const login = async (req, res) => {
 
     const user = await User.findOne({ cnic });
     if (!user) {
-      return res.json({ success: false, message: "User not found" });
-    }
-
-    if (user.email !== email) {
       return res.json({ success: false, message: "User not found" });
     }
 
@@ -77,7 +73,7 @@ export const login = async (req, res) => {
     res.json({
       success: true,
       message: "Login successfull",
-      user: { _id: user._id, email, cnic, name: user.name, role: user.role },
+      user: { _id: user._id, email:user.email, cnic, name: user.name, role: user.role },
     });
   } catch (error) {
     console.log(error.message);

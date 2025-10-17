@@ -69,7 +69,7 @@ const Dashboard = () => {
         {/* Responsive container with horizontal scrolling on mobile */}
         <div className="rounded-lg border border-gray-200 shadow-sm overflow-x-auto">
           {/* Table with fixed layout to improve performance on large datasets */}
-          <table className="divide-y divide-gray-200  w-full">
+          <table className="divide-y divide-gray-200 w-full">
             <thead className="bg-gray-50">
               <tr>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">

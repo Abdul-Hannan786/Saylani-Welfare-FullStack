@@ -18,17 +18,20 @@ const LoginForm = () => {
   const { setUser } = useStore();
 
   const validateForm = () => {
-    if (state === "state") {
+    if (state === "register") {
       if (name.length < 2) {
         toast.error("Name must be at least 2 characters long");
         return false;
       }
     }
-    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-    if (!emailRegex.test(email)) {
-      toast.error("Please enter a valid email address");
-      return false;
+    if (state === "register") {
+      const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+      if (!emailRegex.test(email)) {
+        toast.error("Please enter a valid email address");
+        return false;
+      }
     }
+
     if (password.length < 6) {
       toast.error("Password must be at least 6 characters long");
       return false;
@@ -74,7 +77,7 @@ const LoginForm = () => {
         </h1>
         <p className="text-muted-foreground text-sm">
           {state === "login"
-            ? "Enter your cnic, email and password to login"
+            ? "Enter your cnic and password to login"
             : "Enter your cnic, email and password to signup"}
         </p>
       </div>
@@ -104,17 +107,20 @@ const LoginForm = () => {
             onChange={(e) => setCnic(e.target.value)}
           />
         </div>
-        <div className="grid gap-3">
-          <Label htmlFor="email">Email</Label>
-          <Input
-            id="email"
-            type="email"
-            placeholder="Enter your email address"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
+        {state === "register" && (
+          <div className="grid gap-3">
+            <Label htmlFor="email">Email</Label>
+            <Input
+              id="email"
+              type="email"
+              placeholder="Enter your email address"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+        )}
+
         <div className="grid gap-3">
           <div className="flex items-center">
             <Label htmlFor="password">Password</Label>
