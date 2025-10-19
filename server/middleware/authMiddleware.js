@@ -16,7 +16,6 @@ export const authenticateUser = async (req, res, next) => {
     }
 
     const user = await User.findById(decoded._id).select("-password");
-    console.log(user)
     if (!user) {
       return res.json({ success: false, message: "User not found" });
     }
@@ -29,33 +28,33 @@ export const authenticateUser = async (req, res, next) => {
   }
 };
 
-export const authenticateAdmin = async (req, res, next) => {
-  try {
-    const token = req.cookies.token;
-    if (!token) {
-      return res.json({ success: false, message: "Not authorized" });
-    }
+// export const authenticateAdmin = async (req, res, next) => {
+//   try {
+//     const token = req.cookies.token;
+//     if (!token) {
+//       return res.json({ success: false, message: "Not authorized" });
+//     }
 
-    let decoded;
-    try {
-      decoded = jwt.verify(token, process.env.AUTH_SECRET);
-    } catch (error) {
-      return res.json({ success: false, message: "Not authorized" });
-    }
+//     let decoded;
+//     try {
+//       decoded = jwt.verify(token, process.env.AUTH_SECRET);
+//     } catch (error) {
+//       return res.json({ success: false, message: "Not authorized" });
+//     }
 
-    const user = await User.findById(decoded._id).select("-password");
-    if (!user) {
-      return res.json({ success: false, message: "User not found" });
-    }
+//     const user = await User.findById(decoded._id).select("-password");
+//     if (!user) {
+//       return res.json({ success: false, message: "User not found" });
+//     }
 
-    if (user.role !== "admin") {
-      return res.json({ success: false, message: "Access denied" });
-    }
+//     if (user.role !== "admin") {
+//       return res.json({ success: false, message: "Access denied" });
+//     }
 
-    req.user = user;
-    next();
-  } catch (error) {
-    console.error("Error in user route", error);
-    return res.json({ success: false, message: "Something went wrong" });
-  }
-};
+//     req.user = user;
+//     next();
+//   } catch (error) {
+//     console.error("Error in user route", error);
+//     return res.json({ success: false, message: "Something went wrong" });
+//   }
+// };

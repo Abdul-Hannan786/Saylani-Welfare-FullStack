@@ -15,6 +15,10 @@ import { Toaster } from "react-hot-toast";
 import useStore from "./store/store";
 import api from "./axios";
 import Loading from "./components/user/Loading";
+import UploadReport from "./pages/admin/UploadReport";
+import Vitals from "./pages/admin/Vitals";
+import Report from "./pages/admin/Report";
+import Timeline from "./pages/admin/Timeline";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -34,30 +38,8 @@ function App() {
     }
   };
 
-  // const fetchData = async () => {
-  //   setLoading(true);
-  //   try {
-  //     const [userResponse, usersResponse] = await Promise.all([
-  //       api.get("/api/auth/verify-token"),
-  //       api.get("/api/user"),
-  //     ]);
-
-  //     if (userResponse.status === 200 && usersResponse.status === 200) {
-  //       setUser(userResponse.data.user);
-  //       setUsers(usersResponse.data.users);
-  //     } else {
-  //       console.error("Error in getting data");
-  //     }
-  //   } catch (error) {
-  //     console.log(error.message);
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
-
   useEffect(() => {
     fetchUser();
-    // fetchData();
   }, []);
 
   if (loading) {
@@ -68,19 +50,23 @@ function App() {
     <>
       <Toaster />
       <Routes>
-        <Route path="/" element={user ? <Navigate to="/home" /> : <Auth />} />
+        <Route
+          path="/"
+          element={user ? <Navigate to="/dashboard" /> : <Auth />}
+        />
 
-        <Route element={user ? <UserLayout /> : <Navigate to="/" />}>
-          <Route path="/home" element={<Home />} />
+        <Route element={user ? <AdminLayout /> : <Navigate to="/" />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/upload" element={<UploadReport />} />
+          <Route path="/vitals" element={<Vitals />} />
+          <Route path="/report" element={<Report />} />
+          <Route path="/timeline" element={<Timeline />} />
+        </Route>
+
+        {/* <Route path="/home" element={<Home />} />
           <Route path="/about-us" element={<About />} />
-          <Route path="/contact-us" element={<Contact />} />
-        </Route>
+          <Route path="/contact-us" element={<Contact />} /> */}
 
-        <Route element={<AdminProtectedRoute />}>
-          <Route path="/admin" element={<AdminLayout />}>
-            <Route index element={<Dashboard />} />
-          </Route>
-        </Route>
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </>

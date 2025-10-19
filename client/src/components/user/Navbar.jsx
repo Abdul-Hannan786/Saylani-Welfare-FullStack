@@ -39,7 +39,7 @@ const Navbar = () => {
             height={45}
           />
           <p className="font-semibold text-lg md:text-xl text-gray-800">
-            Saylani Welfare
+            HealthMate
           </p>
         </div>
 
@@ -105,7 +105,7 @@ const Navbar = () => {
                     height={40}
                   />
                   <p className="font-semibold text-xl text-gray-800">
-                    Saylani Welfare
+                    HealthMate
                   </p>
                 </div>
                 {/* <NavMenu  /> */}

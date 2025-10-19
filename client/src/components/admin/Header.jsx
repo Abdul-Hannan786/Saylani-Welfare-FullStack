@@ -21,7 +21,7 @@ const Header = () => {
   };
   return (
     <header className="hidden items-center justify-between shadow-md gap-5 p-5 sm:flex lg:py-5 xl:gap-10 !important">
-      <h2 className="font-bold text-2xl text-gray-800">Admin Dashboard</h2>
+      <h2 className="font-bold text-2xl text-gray-800">HealthMate Dashboard</h2>
       <div className="flex-center min-w-fit gap-4">
         
           <Button

@@ -1,4 +1,4 @@
-import { LayoutDashboard, Menu } from "lucide-react";
+import { Activity, ClipboardPlus, History, LayoutDashboard, Menu } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "../ui/sheet";
@@ -10,9 +10,12 @@ import api from "@/axios";
 import toast from "react-hot-toast";
 
 const adminNav = [
-  { name: "Admin", icon: <LayoutDashboard />, url: "/admin" },
-  { name: "Dashboard", icon: <LayoutDashboard />, url: "/admin/dashboard" },
-];
+  { name: "Dashboard", icon: <LayoutDashboard />, url: "/dashboard" },
+  { name: "Upload Report", icon: <ClipboardPlus />, url: "/upload" },
+  { name: "Add Manual Vitals", icon: <Activity />, url: "/vitals" },
+  { name: "View Report", icon: <ClipboardPlus />, url: "/report" },
+  { name: "View Timeline", icon: <History />, url: "/timeline" },
+]
 
 const MobileNavigation = () => {
   const [open, setOpen] = useState(false);
@@ -41,7 +44,7 @@ const MobileNavigation = () => {
           width={45}
           height={45}
         />
-        <h2 className="text-xl font-bold text-gray-800">Saylani Welfare</h2>
+        <h2 className="text-xl font-bold text-gray-800">HealthMate</h2>
       </div>
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger>
@@ -94,12 +97,7 @@ const MobileNavigation = () => {
               className="text-[16px] leading-[24px] font-semibold flex h-[52px] w-full items-center gap-4 rounded-full bg-[#FA7275]/10 px-6 text-[#FA7275] shadow-none transition-all hover:bg-[#FA7275]/20 cursor-pointer"
               onClick={handleSignOut}
             >
-              <img
-                src="/logout.svg"
-                alt="logout"
-                width={24}
-                height={24}
-              />
+              <img src="/logout.svg" alt="logout" width={24} height={24} />
               <p>Logout</p>
             </Button>
           </div>

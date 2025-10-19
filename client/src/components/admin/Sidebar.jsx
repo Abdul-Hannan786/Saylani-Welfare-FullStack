@@ -1,12 +1,15 @@
 import { cn } from "@/lib/utils";
 import useStore from "@/store/store";
-import { LayoutDashboard } from "lucide-react";
+import { LayoutDashboard, ClipboardPlus, Activity, History    } from "lucide-react";
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const adminNav = [
-  { name: "Admin", icon: <LayoutDashboard />, url: "/admin" },
-  { name: "Dashboard", icon: <LayoutDashboard />, url: "/admin/dashboard" },
+  { name: "Dashboard", icon: <LayoutDashboard />, url: "/dashboard" },
+  { name: "Upload Report", icon: <ClipboardPlus  />, url: "/upload" },
+  { name: "Add Manual Vitals", icon: <Activity  />, url: "/vitals" },
+  { name: "View Report", icon: <ClipboardPlus />, url: "/report" },
+  { name: "View Timeline", icon: <History  />, url: "/timeline" },
 ];
 const Sidebar = () => {
   const { pathname } = useLocation();
@@ -22,7 +25,7 @@ const Sidebar = () => {
           height={50}
         />
         <h3 className="font-semibold text-gray-800 text-xl hidden lg:block">
-          Saylani Welfare
+          HealthMate
         </h3>
       </Link>
 

@@ -13,12 +13,6 @@ const userSchema = new Schema(
       lowercase: true,
     },
     password: { type: String, required: true },
-    cnic: { type: String, required: true, unique: true, trim: true },
-    role: {
-      type: String,
-      enum: ["admin", "user"],
-      default: "user",
-    },
   },
   { timestamps: true }
 );

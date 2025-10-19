@@ -4,15 +4,15 @@ import bcrypt from "bcrypt";
 
 export const register = async (req, res) => {
   try {
-    const { name, email, password, cnic } = req.body;
-    if (!name || !email || !password || !cnic) {
+    const { name, email, password } = req.body;
+    if (!name || !email || !password) {
       return res.json({
         success: false,
         message: "Please provide all the details",
       });
     }
 
-    const isExistingUser = await User.findOne({ cnic });
+    const isExistingUser = await User.findOne({ email });
     if (isExistingUser) {
       return res.json({ success: false, message: "User already exists" });
     }
@@ -21,20 +21,19 @@ export const register = async (req, res) => {
       name,
       email,
       password: hashedPassword,
-      cnic,
     });
 
     const token = jwt.sign({ _id: newUser._id }, process.env.AUTH_SECRET, { expiresIn: '7d' });
     res.cookie("token", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      sameSite: "none",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
     });
     res.json({
       success: true,
       message: "User created successfully",
-      user: { _id: newUser._id, name, email, cnic, role: newUser.role },
+      user: { _id: newUser._id, name, email},
     });
   } catch (error) {
     console.log(error.message);
@@ -44,15 +43,15 @@ export const register = async (req, res) => {
 
 export const login = async (req, res) => {
   try {
-    const { password, cnic } = req.body;
-    if (!password || !cnic) {
+    const { password, email } = req.body;
+    if (!password || !email) {
       return res.json({
         success: false,
         message: "Please provide all the details",
       });
     }
 
-    const user = await User.findOne({ cnic });
+    const user = await User.findOne({ email });
     if (!user) {
       return res.json({ success: false, message: "User not found" });
     }
@@ -66,14 +65,14 @@ export const login = async (req, res) => {
     res.cookie("token", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      sameSite: "none",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
       maxAge: 60 * 60 * 1000, // 1 hour
     });
 
     res.json({
       success: true,
       message: "Login successfull",
-      user: { _id: user._id, email: user.email, cnic, name: user.name, role: user.role },
+      user: { _id: user._id, email: user.email, name: user.name },
     });
   } catch (error) {
     console.log(error.message);
@@ -106,7 +105,7 @@ export const logout = async (req, res) => {
     res.clearCookie("token", {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      sameSite: "none",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
     });
 
     return res.json({ success: true, message: "Logged out successfully" });

@@ -12,7 +12,6 @@ const LoginForm = () => {
   const [state, setState] = useState("login");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-  const [cnic, setCnic] = useState("");
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const { setUser } = useStore();
@@ -24,20 +23,14 @@ const LoginForm = () => {
         return false;
       }
     }
-    if (state === "register") {
       const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
       if (!emailRegex.test(email)) {
         toast.error("Please enter a valid email address");
         return false;
       }
-    }
 
     if (password.length < 6) {
       toast.error("Password must be at least 6 characters long");
-      return false;
-    }
-    if (cnic.length !== 13) {
-      toast.error("CNIC must be 13 characters long");
       return false;
     }
     return true;
@@ -52,7 +45,6 @@ const LoginForm = () => {
         name,
         email,
         password,
-        cnic,
       });
       if (data.success) {
         toast.success(data.message);
@@ -76,8 +68,8 @@ const LoginForm = () => {
         </h1>
         <p className="text-muted-foreground text-sm">
           {state === "login"
-            ? "Enter your cnic and password to login"
-            : "Enter your cnic, email and password to signup"}
+            ? "Enter your email and password to login"
+            : "Enter your email and password to signup"}
         </p>
       </div>
       <div className="grid gap-6">
@@ -95,18 +87,7 @@ const LoginForm = () => {
           </div>
         )}
 
-        <div className="grid gap-3">
-          <Label htmlFor="cnic">CNIC</Label>
-          <Input
-            id="cnic"
-            type="number"
-            placeholder="Enter your cnic"
-            required
-            value={cnic}
-            onChange={(e) => setCnic(e.target.value)}
-          />
-        </div>
-        {state === "register" && (
+        
           <div className="grid gap-3">
             <Label htmlFor="email">Email</Label>
             <Input
@@ -118,7 +99,6 @@ const LoginForm = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-        )}
 
         <div className="grid gap-3">
           <div className="flex items-center">
