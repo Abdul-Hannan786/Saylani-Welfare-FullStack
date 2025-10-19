@@ -17,6 +17,9 @@ import {
   ShieldCheck,
   HelpingHand,
   GraduationCap,
+  Eye,
+  Zap,
+
 } from "lucide-react";
 
 const iconComponents = {
@@ -31,43 +34,41 @@ const iconComponents = {
   ShieldCheck: ShieldCheck,
   HelpingHand: HelpingHand,
   GraduationCap: GraduationCap,
+  Eye: Eye,
+  Zap: Zap,
 };
 
 const defaultValues = [
   {
-    title: "Compassion",
-    description:
-      "We serve humanity with kindness and empathy, ensuring dignity and respect for all.",
-    icon: "HeartHandshake", // Symbolizes caring and humanitarian help
+    title: "Clarity",
+    description: "Turning medical complexity into simple understanding for every user.",
+    icon: "Eye", // Symbolizes clear vision and understanding
   },
   {
-    title: "Transparency",
-    description:
-      "We maintain complete transparency in our operations, donations, and welfare activities.",
-    icon: "ShieldCheck", // Represents trust and accountability
+    title: "Privacy First",
+    description: "Your health data is protected with strong encryption and strict security measures.",
+    icon: "ShieldCheck", // Represents security and trust
   },
   {
-    title: "Service to Humanity",
-    description:
-      "We believe helping those in need is the highest form of worship and social responsibility.",
-    icon: "HelpingHand", // Represents support and social work
+    title: "Empowerment",
+    description: "Putting the power of health understanding and tracking back in your hands.",
+    icon: "Zap", // Represents energy, power, and activation
   },
   {
-    title: "Education for All",
-    description:
-      "We empower individuals through free quality education and IT training to build a better future.",
-    icon: "GraduationCap", // Reflects Saylani's education and training mission
+    title: "Accessibility",
+    description: "Breaking language barriers with bilingual explanations in English and Urdu.",
+    icon: "Users", // Represents inclusivity and serving all people
   },
 ];
 
 const About = () => {
   const aboutData = {
     subtitle:
-      "Serving humanity with compassion through education, healthcare, and welfare support.",
+      "Empowering individuals to understand and manage their health through the power of AI, making medical information accessible and actionable for everyone",
     mission:
-      "Our mission is to serve humanity without discrimination by providing food, healthcare, education, and support to those in need — empowering individuals to lead better lives.",
+      "To democratize health understanding by leveraging AI to translate complex medical reports into clear, actionable insights in simple language. We empower individuals to take control of their health journey with confidence and clarity.",
     vision:
-      "We envision a world free from hunger, illiteracy, and suffering, where every person has access to basic human rights and opportunities to thrive.",
+      "We envision a future where no one feels overwhelmed by their medical reports. A world where AI serves as a compassionate health companion, making personalized health understanding accessible to all, leading to earlier awareness and better well-being.",
     values: defaultValues,
     className: "relative overflow-hidden py-20",
   };
