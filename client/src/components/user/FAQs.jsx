@@ -9,38 +9,36 @@ import { cn } from "@/lib/utils";
 
 const faq = [
   {
-    question: "How can I donate to Saylani Welfare?",
+    question: "How does HealthMate analyze my medical reports?",
     answer:
-      "You can donate online through our official website using various payment methods, or visit any Saylani branch near you.",
+      "HealthMate uses Google's powerful Gemini AI model. You simply upload a PDF or image of your report, and Gemini reads it directly—no manual typing needed. It then generates an easy-to-understand summary in both English and Roman Urdu.",
   },
   {
-    question: "What services does Saylani provide?",
+    question: "Is my health data safe and private?",
     answer:
-      "Saylani offers free food distribution, medical care, education programs, vocational training, and emergency relief services across Pakistan and abroad.",
+      "Yes, absolutely. We use JWT-based authentication, encrypt user data, and provide signed URLs for file access. Your health information is stored securely and privately. We also include a clear disclaimer that AI is for understanding only, not for medical advice.",
   },
   {
-    question: "Can I volunteer with Saylani?",
+    question: "Can I track my health without lab reports?",
     answer:
-      "Yes, we welcome volunteers! Please fill out the volunteer form on our website or visit your nearest Saylani center to get started.",
+      "Yes! HealthMate allows you to manually add vital signs like Blood Pressure, Sugar levels, Weight, and notes. This helps you maintain a complete health timeline even between formal lab tests.",
   },
   {
-    question:
-      "How can I enroll in Saylani's IT or vocational training programs?",
+    question: "What kind of reports can HealthMate read?",
     answer:
-      "You can apply through the official Saylani Mass IT Training Program website or visit our training center for enrollment details.",
+      "HealthMate can read various medical documents, including lab reports, prescriptions, X-ray summaries, and ultrasound reports. As long as it's a clear PDF or image, Gemini can process it.",
   },
   {
-    question: "Where does Saylani operate?",
+    question: "Does HealthMate replace my doctor?",
     answer:
-      "Saylani operates throughout Pakistan and in several international regions. Our services are expanding continuously to reach more people in need.",
+      "No. HealthMate is designed to help you understand your health information better, but it is not a substitute for professional medical advice. We always recommend consulting your doctor for diagnosis and treatment. The app even suggests questions to ask your doctor during your visit.",
   },
   {
-    question: "How can I contact Saylani Welfare?",
+    question: "Is the app available in Urdu?",
     answer:
-      "You can contact us through the contact form on our website, call our helpline, or visit any of our branches. We’re here to assist you.",
+      "Yes! HealthMate provides all AI-generated summaries and explanations in both English and Roman Urdu, making it accessible for users who are more comfortable reading Urdu in the Roman script.",
   },
 ];
-
 const FAQs = () => {
   return (
     <div id="faq" className="w-full max-w-screen-xl mx-auto py-8 xs:py-16 px-6">

@@ -12,60 +12,60 @@ const testimonials = [
   {
     id: 1,
     name: "Ali Raza",
-    designation: "Student",
-    company: "Saylani Mass IT Program",
+    designation: "Tech Student",
+    company: "Regular HealthMate User",
     testimonial:
-      "Saylani completely changed my life. I had no access to quality education before, but now I’m learning web development for free and preparing for a bright future.",
+      "HealthMate is a game-changer! As a student, I used to get stressed trying to understand my blood test reports. Now, the AI summary in simple English and Urdu tells me everything I need to know in seconds. It's like having a doctor in my pocket!",
     avatar:
       "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?_gl=1*1cgio44*_ga*MzgzMjU1MTczLjE3NTMzNzg2Mjg.*_ga_8JE65Q40S6*czE3NTMzNzg2MjckbzEkZzEkdDE3NTMzNzg2MzIkajU1JGwwJGgw",
   },
   {
     id: 2,
     name: "Ahmed Mustafa",
-    designation: "Donor",
-    company: "Saylani Dastarkhwan",
+    designation: "Caretaker for Parents",
+    company: "Family User",
     testimonial:
-      "Feeding my children was a daily struggle. Saylani’s food program gives us dignity and hope every single day. I’m forever thankful.",
+      "Managing my elderly parents' health reports was overwhelming. HealthMate's timeline view and Urdu explanations have made it so simple. I can finally track their BP and sugar trends alongside lab reports. It brings us peace of mind.",
     avatar:
       "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHVzZXJ8ZW58MHx8MHx8fDA%3D",
   },
   {
     id: 3,
     name: "Umer Khalid",
-    designation: "Patient",
-    company: "Saylani Medical Center",
+    designation: "Patient with Diabetes",
+    company: "HealthMate Pro User",
     testimonial:
-      "I received free medical treatment from Saylani when I had no one to turn to. Their staff was caring and the treatment was excellent.",
+      "The 'Questions to Ask Your Doctor' feature is brilliant. Before my appointments, I check my HealthMate summary and go prepared. It has made my consultations with the doctor 10x more productive. This app truly empowers patients.",
     avatar:
       "https://images.unsplash.com/photo-1678286742832-26543bb49959?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHVzZXJ8ZW58MHx8MHx8fDA%3D",
   },
   {
     id: 4,
     name: "Daniyal Ahmed",
-    designation: "Volunteer",
-    company: "Saylani Youth Program",
+    designation: "Freelancer",
+    company: "Health-conscious User",
     testimonial:
-      "Volunteering with Saylani has been a rewarding experience. It gave me purpose and a chance to give back to my community.",
+      "I love manually logging my daily vitals. Seeing my health data on a simple timeline helps me understand the impact of my lifestyle. The food and home remedy suggestions are a great bonus for staying healthy proactively.",
     avatar:
       "https://images.unsplash.com/photo-1522556189639-b150ed9c4330?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzV8fHVzZXJ8ZW58MHx8MHx8fDA%3D",
   },
   {
     id: 5,
     name: "Imran Ali",
-    designation: "Donor",
-    company: "Supporter since 2018",
+    designation: "Security-Conscious User",
+    company: "IT Professional",
     testimonial:
-      "I trust Saylani completely. Their transparency and dedication to helping the needy inspire me to keep supporting their work.",
+      "I was hesitant about storing health data online, but HealthMate's security with JWT and encrypted data won my trust. It's the only app where I feel safe keeping all my family's medical history. The privacy focus is top-notch.",
     avatar:
       "https://images.pexels.com/photos/905375/pexels-photo-905375.jpeg?_gl=1*1xrgfn7*_ga*MzgzMjU1MTczLjE3NTMzNzg2Mjg.*_ga_8JE65Q40S6*czE3NTMzNzg2MjckbzEkZzEkdDE3NTMzNzg4MTIkajU5JGwwJGgw",
   },
   {
     id: 6,
     name: "Haris Shahid",
-    designation: "Vocational Trainee",
-    company: "Saylani Skills Program",
+    designation: "Busy Professional",
+    company: "On-the-go User",
     testimonial:
-      "Thanks to Saylani, I learned stitching and now support my family with my own small business. They empower women like me.",
+      "As someone who's always traveling, I can't carry paper reports. HealthMate is my digital health vault. I uploaded an X-ray report once, and the AI explained it perfectly. It's incredibly convenient and smart.",
     avatar:
       "https://images.unsplash.com/flagged/photo-1573740144655-bbb6e88fb18a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHVzZXJ8ZW58MHx8MHx8fDA%3D",
   },

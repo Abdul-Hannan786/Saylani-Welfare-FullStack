@@ -7,13 +7,14 @@ const Hero = () => {
       <div className="md:mt-6 flex items-center justify-center">
         <div className="text-center max-w-2xl">
           <h1 className="mt-6 max-w-[20ch] text-3xl xs:text-4xl sm:text-5xl md:text-6xl font-bold !leading-[1.2] tracking-tight text-gray-800 ">
-            Together <span className="text-primary">We Create</span> Brighter Futures
+            HealthMate <br />
+            <span className="text-primary">Sehat ka Smart Dost.</span>
           </h1>
           <p className="mt-6 max-w-[60ch] xs:text-lg">
-            Join us in supporting underprivileged communities by providing
-            access to quality education, essential healthcare services, and
-            sustainable development programs that create lasting change and
-            brighter futures.
+            Meet your smart health friend! Store all your reports, understand
+            them with AI-powered explanations, and track your well-being over
+            time. Designed for you and your family, in the language you
+            understand best.
           </p>
           <div className="mt-12 flex flex-col sm:flex-row items-center sm:justify-center gap-4">
             <Button

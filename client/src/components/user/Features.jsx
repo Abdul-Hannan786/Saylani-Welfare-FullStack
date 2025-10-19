@@ -1,28 +1,35 @@
-import { GraduationCap, Leaf, Stethoscope } from "lucide-react";
+import {
+  FileText,
+  GraduationCap,
+  Leaf,
+  LineChart,
+  Shield,
+  Stethoscope,
+} from "lucide-react";
 import React from "react";
 
 const features = [
   {
-    icon: <GraduationCap className="w-8 h-8" />,
-    title: "Accessible Education",
+    icon: <FileText className="w-8 h-8" />, // Assuming you have a FileText icon for reports
+    title: "AI-Powered Reports",
     description:
-      "Providing quality learning opportunities to children and youth in underserved communities.",
+      "Upload any medical report and get an easy-to-understand summary in both English and Roman Urdu, powered by Gemini AI.",
     color: "text-blue-500",
     bgColor: "bg-blue-50",
   },
   {
-    icon: <Stethoscope className="w-8 h-8" />,
-    title: "Community Healthcare",
+    icon: <LineChart className="w-8 h-8" />, // Assuming a LineChart icon for tracking
+    title: "Health Tracking",
     description:
-      "Delivering essential medical support and health awareness to remote and at-risk populations.",
-    color: "text-yellow-500",
-    bgColor: "bg-yellow-50",
+      "Manually log and track key vitals like BP, Sugar, and Weight over time, even without a lab report.",
+    color: "text-green-500",
+    bgColor: "bg-green-50",
   },
   {
-    icon: <Leaf className="w-8 h-8" />,
-    title: "Sustainable Development",
+    icon: <Shield className="w-8 h-8" />, // A Shield icon for security
+    title: "Secure Health Vault",
     description:
-      "Promoting eco-friendly initiatives and skill-building programs for long-term community growth.",
+      "Store all your prescriptions, reports, and health data securely in one place with encrypted privacy.",
     color: "text-purple-600",
     bgColor: "bg-purple-50",
   },
@@ -37,9 +44,11 @@ const Features = () => {
               Our <span className="text-primary">Core</span> Initiatives
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              We focus on empowering underserved communities through strategic
-              programs in education, healthcare, and sustainable development —
-              creating impact that lasts for generations.
+              We focus on empowering individuals to take control of their health
+              through innovative technology. HealthMate demystifies medical
+              data, provides AI-powered insights in simple language, and offers
+              a secure vault for all health records — creating a lasting impact
+              on personal well-being.
             </p>
           </div>
 
@@ -74,7 +83,13 @@ const Features = () => {
               <h3 className="text-3xl md:text-4xl font-bold text-gray-800 mb-5">
                 Our Vision for future
               </h3>
-              <p className="text-gray-600 leading-relaxed text-lg">We envision a world where every individual has access to quality education, basic healthcare, and the tools to lead a sustainable life. Our mission is not just to support communities today — but to empower them for generations to come.</p>
+              <p className="text-gray-600 leading-relaxed text-lg">
+                We envision a future where managing your health is effortless
+                and empowering for everyone. A world where complex medical
+                information is instantly clear, and every individual has a smart
+                companion to guide them on their lifelong health journey,
+                leading to earlier understanding and better well-being.
+              </p>
             </div>
           </div>
         </div>

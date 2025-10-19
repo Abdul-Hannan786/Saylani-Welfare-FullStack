@@ -22,7 +22,7 @@ import Timeline from "./pages/admin/Timeline";
 
 function App() {
   const [loading, setLoading] = useState(false);
-  const { user, setUser, setUsers } = useStore();
+  const { user, setUser } = useStore();
 
   const fetchUser = async () => {
     setLoading(true);
@@ -50,10 +50,10 @@ function App() {
     <>
       <Toaster />
       <Routes>
-        <Route
+        {/* <Route
           path="/"
           element={user ? <Navigate to="/dashboard" /> : <Auth />}
-        />
+        /> */}
 
         <Route element={user ? <AdminLayout /> : <Navigate to="/" />}>
           <Route path="/dashboard" element={<Dashboard />} />
@@ -63,9 +63,20 @@ function App() {
           <Route path="/timeline" element={<Timeline />} />
         </Route>
 
-        {/* <Route path="/home" element={<Home />} />
-          <Route path="/about-us" element={<About />} />
-          <Route path="/contact-us" element={<Contact />} /> */}
+        <Route element={user && <Navigate to="/dashboard" />}>
+          <Route element={<UserLayout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/about-us" element={<About />} />
+            <Route path="/contact-us" element={<Contact />} />
+          </Route>
+        </Route>
+
+        <Route
+          path="/auth"
+          element={user ? <Navigate to="/dashboard" /> : <Auth />}
+        />
+
+        {/*  */}
 
         <Route path="*" element={<ErrorPage />} />
       </Routes>

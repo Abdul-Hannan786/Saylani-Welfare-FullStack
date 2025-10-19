@@ -6,27 +6,12 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
-import { LogOut, Menu } from "lucide-react";
-import useStore from "@/store/store";
-import toast from "react-hot-toast";
-import api from "@/axios";
+import { Menu } from "lucide-react";
 
 const Navbar = () => {
-  const { user, setUser } = useStore();
-  const handleSignOut = async () => {
-    try {
-      const { data } = await api.post("/api/auth/logout");
-      if (data.success) {
-        toast.success(data.message);
-        setUser(null);
-      }
-    } catch (error) {
-      toast.error("error in signing out");
-      console.log(error.message);
-    }
-  };
+  const navigate = useNavigate();
 
   return (
     <nav className="fixed z-50 top-6 inset-x-4 h-16 sm:h-16 bg-background/40 backdrop-blur-xs border dark:border-slate-700/70 max-w-screen-xl mx-auto rounded-full">
@@ -48,7 +33,7 @@ const Navbar = () => {
           <NavigationMenuList className="gap-6 space-x-0 data-[orientation=vertical]:flex-col data-[orientation=vertical]:items-start">
             <NavigationMenuItem>
               <NavigationMenuLink className={"text-[16px]"} asChild>
-                <Link to="/home">Home</Link>
+                <Link to="/">Home</Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
@@ -61,31 +46,12 @@ const Navbar = () => {
                 <Link to="/contact-us">Contact</Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
-
-            {/* <NavigationMenuItem>
-              <NavigationMenuLink asChild>
-                <Link to="#testimonials">Testimonials</Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem> */}
           </NavigationMenuList>
         </NavigationMenu>
 
         <div className="flex items-center gap-3">
-          {user.role === "admin" && (
-            <Link to="/admin">
-              <Button className="hidden sm:block rounded-full cursor-pointer font-semibold">
-                Dashboard
-              </Button>
-            </Link>
-          )}
-
-          <Button
-            onClick={handleSignOut}
-            variant="destructive"
-            className="hidden rounded-full sm:inline-flex cursor-pointer px-4 font-semibold active:scale-95 transition"
-          >
-            <LogOut />
-            Sign Out
+          <Button onClick={() => navigate("/auth")} className="hidden rounded-full sm:inline-flex cursor-pointer px-4 font-semibold active:scale-95 transition">
+            Sign In
           </Button>
 
           {/* Mobile Menu */}
@@ -114,7 +80,7 @@ const Navbar = () => {
                   <NavigationMenuList className="gap-3 space-x-0 data-[orientation=vertical]:flex-col data-[orientation=vertical]:items-start">
                     <NavigationMenuItem>
                       <NavigationMenuLink className="text-[16px]" asChild>
-                        <Link to="/home">Home</Link>
+                        <Link to="/">Home</Link>
                       </NavigationMenuLink>
                     </NavigationMenuItem>
                     <NavigationMenuItem>
@@ -127,30 +93,12 @@ const Navbar = () => {
                         <Link to="/contact-us">Contact</Link>
                       </NavigationMenuLink>
                     </NavigationMenuItem>
-                    {/* <NavigationMenuItem>
-                      <NavigationMenuLink className="text-[16px]" asChild>
-                        <Link to="#testimonials">Testimonials</Link>
-                      </NavigationMenuLink>
-                    </NavigationMenuItem> */}
                   </NavigationMenuList>
                 </NavigationMenu>
 
                 <div className="flex flex-col gap-3 w-full">
-                  {user.role === "admin" && (
-                    <Link to="/admin">
-                      <Button className="w-full sm:hidden rounded-full font-semibold">
-                        Dashboard
-                      </Button>
-                    </Link>
-                  )}
-
-                  <Button
-                    variant="destructive"
-                    className="w-full sm:hidden rounded-full"
-                    onClick={handleSignOut}
-                  >
-                    <LogOut className="font-semibold" />
-                    Sign Out
+                  <Button onClick={() => navigate("/auth")} className="w-full sm:hidden rounded-full">
+                    Sign In
                   </Button>
                 </div>
               </SheetContent>
