@@ -17,19 +17,19 @@ export const uploadReport = async (req, res) => {
         const mime = req.file.mimetype;
         const fileType = mime.includes("pdf") ? "pdf" : "image";
 
-        // 1️⃣ Upload to Cloudinary
+        // 1️⃣ Upload to Cloudinary (using the simplified function above)
         const result = await uploadToCloudinary(req.file.buffer);
-        const fileUrl = result.secure_url;
 
-        // 2️⃣ Save File record
+        // 2️⃣ Save File record with the basic Cloudinary URL
         const createdFile = await File.create({
             userId: req.user.id,
-            fileUrl,
+            fileUrl: result.secure_url, // ✅ Store basic URL only
             fileType,
             date: req.body.date ? new Date(req.body.date) : Date.now(),
+            originalName: req.file.originalname,
         });
 
-        // 3️⃣ Extract text if PDF
+        // 3️⃣ Extract text if PDF (your existing code)
         let parsedText = "";
         let text = ""
         if (fileType === "pdf") {
@@ -38,9 +38,6 @@ export const uploadReport = async (req, res) => {
                 parsedText = await parser.getText();
                 text = parsedText.text
                 console.log(text)
-                // const data = await PDFParse(req.file.buffer); // Use PDFParse directly
-                // parsedText = data.text?.trim() || "";
-                // console.log("PDF parsed successfully, text length:", parsedText.length);
             } catch (err) {
                 console.error("PDF parsing failed:", err);
             }
@@ -56,7 +53,7 @@ export const uploadReport = async (req, res) => {
         try {
             aiResult = await sendFileToGeminiAndGetSummaries({
                 fileType,
-                fileUrl,
+                fileUrl: result.secure_url, // Use the basic URL for AI
                 text,
             });
         } catch (err) {
@@ -75,7 +72,7 @@ export const uploadReport = async (req, res) => {
         return res.status(201).json({
             success: true,
             message: "Report uploaded successfully",
-            file: createdFile,
+            file: createdFile, // Contains basic fileUrl that frontend can modify
             aiInsight: aiDoc,
         });
     } catch (error) {
