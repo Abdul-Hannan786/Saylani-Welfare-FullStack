@@ -13,7 +13,7 @@ const PORT = 3000;
 
 app.use(
   cors({
-    origin: true,
+    origin: "https://saylani-welfare-full-stack-frontend.vercel.app/",
     credentials: true,
   })
 );
