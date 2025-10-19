@@ -2,12 +2,14 @@
 import api from "@/axios";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
+import { Link, useNavigate } from "react-router-dom";
 
 const UploadReport = () => {
   const [file, setFile] = useState(null);
   const [date, setDate] = useState("");
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -226,6 +228,18 @@ const UploadReport = () => {
         <div className="mt-4 p-3 border">
           <h3 className="font-semibold">AI Summary (preview)</h3>
           <p>{result.aiInsight.englishSummary}</p>
+
+          <p className="mt-2 text-sm text-blue-600 font-medium">
+            → For full overview, visit the{" "}
+            <Link to={"/dashboard"} className="underline">
+              dashboard
+            </Link>{" "}
+            or{" "}
+            <span onClick={() => navigate("/report")} className="underline cursor-pointer">
+              view report page
+            </span>
+            .
+          </p>
         </div>
       )}
     </div>
