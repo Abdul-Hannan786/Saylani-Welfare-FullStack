@@ -13,7 +13,12 @@ const PORT = 3000;
 
 app.use(
   cors({
-    origin: "https://saylani-welfare-full-stack-frontend.vercel.app",
+    origin: [
+      "https://saylani-welfare-full-stack-frontend.vercel.app",
+      "http://localhost:5173", // optional for local testing
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
   })
 );
@@ -22,7 +27,7 @@ app.use(express.json());
 
 app.get("/", (req, res) => res.send("Hello World"));
 app.use("/api/auth", authRouter);
-app.use("/api/user", userRouter)
+app.use("/api/user", userRouter);
 app.use("/api/reports", reportRouter);
 app.use("/api/vitals", vitalRouter);
 
